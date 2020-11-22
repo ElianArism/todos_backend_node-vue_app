@@ -21,7 +21,7 @@ let urlDB;
 if (process.env.NODE_ENV === 'dev') {
     urlDB = 'mongodb://localhost:27017/toDoList';
 } else {
-    urlDB = process.env.MONGO_URI;
+    urlDB = process.env.DB_HOST;
 }
 process.env.URLDB = urlDB;
 
