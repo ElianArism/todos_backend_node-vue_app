@@ -96,56 +96,6 @@ app.get('/featured', (req, res) => {
                 });
             } 
         }
-
-        // total featured tasks
-        Task.count({isFeatured: true}, (err,count) => {
-            if (err) {
-                return res.status(500).json({
-                    ok: false, 
-                    msg: 'Server error.'
-                });
-            } 
-            
-            if(tasksList) {
-                return res.json({
-                    ok: true,
-                    tasksList, 
-                    featuredTasks: count 
-                }); 
-            }
-        }); 
-    }); 
-}); 
-
-// list finished tasks 
-app.get('/finished', (req, res) => {
-    Task.find({isFinished: true}, (err, tasksList) => {
-        if (err) {
-            if (err) {
-                return res.status(500).json({
-                    ok: false, 
-                    msg: 'Server error.'
-                });
-            } 
-        }
-
-        // total finished tasks
-        Task.count({isFinished: true}, (err,count) => {
-            if (err) {
-                return res.status(500).json({
-                    ok: false, 
-                    msg: 'Server error.'
-                });
-            } 
-            
-            if(tasksList) {
-                return res.json({
-                    ok: true,
-                    tasksList, 
-                    finished: count 
-                }); 
-            }
-        }); 
     }); 
 }); 
 
