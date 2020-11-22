@@ -19,7 +19,7 @@ app.use(bodyParser.json());
 
 // conexion a la base de datos  
 
-mongoose.connect(process.env.URLDB, {
+mongoose.connect(process.env.DB_HOST, {
     useNewUrlParser: true, 
     useUnifiedTopology: true,
     useFindAndModify: false,
