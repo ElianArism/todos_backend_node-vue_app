@@ -19,7 +19,7 @@ app.use(bodyParser.json());
 
 // conexion a la base de datos  
 
-mongoose.connect(process.env.DB_HOST, {
+mongoose.connect(process.env.URLDB, {
     useNewUrlParser: true, 
     useUnifiedTopology: true,
     useFindAndModify: false,
@@ -38,4 +38,4 @@ app.listen(process.env.PORT, () => {
     console.log(`Servidor corriendo ${process.env.PORT} `);
 })
 
-module.exports = [app];
+module.exports = app;
