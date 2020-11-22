@@ -17,7 +17,7 @@ if (process.env.NODE_ENV === 'dev') {
     urlDB = 'mongodb://localhost:27017/toDoList';
 } else {
     urlDB = process.env.DB_HOST;
-    // 'mongodb+srv://mongo_atlasbyiascg8ZOVKYzFo@cluster0.66oai.mongodb.net/todos?retryWrites=true&w=majority'
+    // 'mongodb+srv://mongo_atlas:byiascg8ZOVKYzFo@cluster0.66oai.mongodb.net/todos?retryWrites=true&w=majority'
 }
-export default urlDB;
+process.env.URLDB = urlDB; 
 
