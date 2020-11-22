@@ -35,7 +35,7 @@ app.use(require('./routes/task.routes'));
 
 // levantar servidor 
 app.listen(process.env.PORT, () => {
-    console.log(`Servidor corriendo en el puerto 3000`);
+    console.log(`Servidor corriendo ${process.env.PORT} `);
 })
 
 module.exports = [app];
