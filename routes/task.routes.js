@@ -68,7 +68,6 @@ app.get('/task', (req, res) => {
             return res.json({
                 ok: true,
                 tasksList, 
-                tasks: count 
             }); 
         }
         
@@ -89,7 +88,6 @@ app.get('/featured', (req, res) => {
             return res.json({
                 ok: true,
                 tasksList, 
-                featuredTasks: count 
             }); 
         }
         
