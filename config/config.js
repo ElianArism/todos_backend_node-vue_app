@@ -19,5 +19,5 @@ if (process.env.NODE_ENV === 'dev') {
     urlDB = process.env.DB_HOST;
     // 'mongodb+srv://mongo_atlasbyiascg8ZOVKYzFo@cluster0.66oai.mongodb.net/todos?retryWrites=true&w=majority'
 }
-process.env.URLDB = urlDB;
+export default urlDB;
 

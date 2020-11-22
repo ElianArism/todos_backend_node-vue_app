@@ -1,4 +1,6 @@
 // imports 
+
+const urlDB = require('./config/config');
 require('./config/config');
 const express = require('express'); 
 const bodyParser = require('body-parser'); 
@@ -19,7 +21,7 @@ app.use(bodyParser.json());
 
 // conexion a la base de datos  
 
-mongoose.connect(process.env.URLDB, {
+mongoose.connect(urlDB, {
     useNewUrlParser: true, 
     useUnifiedTopology: true,
     useFindAndModify: false,
