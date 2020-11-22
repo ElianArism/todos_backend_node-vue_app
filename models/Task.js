@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 
 let Schema = mongoose.Schema; 
 
-// Task Model 
+// Modelo de tareas
 let TaskSchema = new Schema({
     info: {
         type: String, 
@@ -22,6 +22,6 @@ let TaskSchema = new Schema({
     }
 }); 
 
-// export model 
+// Exportar modelo
 module.exports = mongoose.model('TaskModel', TaskSchema); 
 

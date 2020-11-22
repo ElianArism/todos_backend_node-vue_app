@@ -1,10 +1,54 @@
 // imports 
 const express = require('express'); 
 const Task = require('../models/Task');
+
 // instancia express 
 const app = express(); 
 
-// new task 
+
+// GET tareas
+app.get('/task', (req, res) => {
+    Task.find((err, tasksList) => {
+
+        if (err) {
+            return res.status(500).json({
+                ok: false, 
+                msg: 'Server error.'
+            });
+        } 
+        
+        if(tasksList) {
+            return res.json({
+                ok: true,
+                tasksList, 
+            }); 
+        }
+        
+    }); 
+}); 
+
+// GET tareas destacadas
+app.get('/featured', (req, res) => {
+    Task.find({isFeatured: true}, (err, tasksList) => {
+        if (err) {
+            return res.status(500).json({
+                ok: false, 
+                msg: 'Server error.'
+            });
+        } 
+        
+        if(tasksList) {
+            return res.json({
+                ok: true,
+                tasksList, 
+            }); 
+        }
+        
+    }); 
+}); 
+
+
+// Crear nueva tarea
 app.post('/task', (req, res) => {
     let { info, isFeatured = false } = req.body; 
 
@@ -35,7 +79,7 @@ app.post('/task', (req, res) => {
     });
 }); 
 
-// edit task 
+// Editar una tarea 
 app.put('/task/:id', (req, res) => {
     let id = req.params.id; 
 
@@ -53,48 +97,7 @@ app.put('/task/:id', (req, res) => {
     }); 
 }); 
 
-// list tasks 
-app.get('/task', (req, res) => {
-    Task.find((err, tasksList) => {
-
-        if (err) {
-            return res.status(500).json({
-                ok: false, 
-                msg: 'Server error.'
-            });
-        } 
-        
-        if(tasksList) {
-            return res.json({
-                ok: true,
-                tasksList, 
-            }); 
-        }
-        
-    }); 
-}); 
-
-// list featured tasks  
-app.get('/featured', (req, res) => {
-    Task.find({isFeatured: true}, (err, tasksList) => {
-        if (err) {
-            return res.status(500).json({
-                ok: false, 
-                msg: 'Server error.'
-            });
-        } 
-        
-        if(tasksList) {
-            return res.json({
-                ok: true,
-                tasksList, 
-            }); 
-        }
-        
-    }); 
-}); 
-
-// delete task 
+// Eliminar una tarea
 app.delete('/task/:id', (req, res) => {
     let id = req.params.id; 
 
@@ -119,5 +122,6 @@ app.delete('/task/:id', (req, res) => {
         }
     }); 
 }); 
-// export express 
+
+// Exportar logica 
 module.exports = app; 
