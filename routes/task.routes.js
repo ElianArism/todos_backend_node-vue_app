@@ -56,15 +56,7 @@ app.put('/task/:id', (req, res) => {
 // list tasks 
 app.get('/task', (req, res) => {
     Task.find((err, tasksList) => {
-        if (err) {
-            if (err) {
-                return res.status(500).json({
-                    ok: false, 
-                    msg: 'Server error.'
-                });
-            } 
-        }
-        
+
         if (err) {
             return res.status(500).json({
                 ok: false, 
@@ -86,14 +78,6 @@ app.get('/task', (req, res) => {
 // list featured tasks  
 app.get('/featured', (req, res) => {
     Task.find({isFeatured: true}, (err, tasksList) => {
-        if (err) {
-            if (err) {
-                return res.status(500).json({
-                    ok: false, 
-                    msg: 'Server error.'
-                });
-            } 
-        }
         if (err) {
             return res.status(500).json({
                 ok: false, 
