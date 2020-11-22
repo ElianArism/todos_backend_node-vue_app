@@ -19,7 +19,7 @@ app.use(bodyParser.json());
 
 // conexion a la base de datos  
 
-mongoose.connect('mongodb+srv://mongo_atlas:byiascg8ZOVKYzFo@cluster0.66oai.mongodb.net/todos', {
+mongoose.connect('mongodb+srv://mongo_atlas:byiascg8ZOVKYzFo@cluster0.66oai.mongodb.net/todos?retryWrites=true&w=majority', {
     useNewUrlParser: true, 
     useUnifiedTopology: true,
     useFindAndModify: false,
